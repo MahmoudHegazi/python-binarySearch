@@ -1,5 +1,33 @@
 # Python Binary Search
 
+#### my solution made from scratch before reading math rules used below some times it reduces loop to 70 times some times it reduce to 270270.2702702703 times, (i say sometimes becuase there are 1 signle random part which is dividing list number I selected 50 random, math could imporve this and return the number always makes it 270270.2702702703 times
+```python
+    import numpy as np
+    """(Copyright inspred from reading point in ternary search divide big list to small lists added min and max to target which small list have target) Improve can done with: eg target / something * something + len(items) = divide number to something, eg when target was 700000 it and divided to 50 it done in only 37 loops 50 was random number"""
+    # also bigest note as this is core of algo, I can do it in any language only as python fancy it has binary_search but others will not has go, java,c++, js
+    #this is core of algo but samilir to it not same copyright 
+    items = list(range(10000000))
+    algoDivding = np.array_split(items, 50)
+    print(algoDivding)
+    # algo dividing
+    target = 541367
+    loops_done = 0
+    
+    need_break = False
+    for arr in algoDivding:
+        loops_done += 1
+        minNumOfThisArr = min(arr)
+        maxNumOfThisArr = max(arr)
+        if target >= minNumOfThisArr and target <= maxNumOfThisArr:
+            # instead of loop on all values loop on fewer length list 1
+            for num in arr:
+                loops_done += 1
+                if num == target:
+                    print(loops_done,"instead of {}".format(len(items)), "found target by looping on small length list otherwise should loop on all numbers but np slowed things", min(arr), max(arr))
+                    break
+        if need_break:
+            break
+```
 Hey :wave: <br>
 ~ let's talk about binary search today! <br>
 
